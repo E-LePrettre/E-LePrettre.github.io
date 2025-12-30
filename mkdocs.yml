@@ -1,0 +1,13 @@
+site_name: Ressources pédagogiques – E. Le Prettre
+site_url: !ENV [CI_PAGES_URL, "http://127.0.0.1:8000/"]
+
+theme:
+  name: material
+  language: fr
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.top
+
+nav:
+  - Accueil: index.md
