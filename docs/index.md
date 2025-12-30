@@ -1,32 +1,62 @@
-# Ressources pédagogiques numériques
 
-Bienvenue sur l’espace de ressources pédagogiques numériques  
+
+# 🎓 Ressources pédagogiques numériques
+
+Bienvenue sur l’espace de ressources pédagogiques numériques
 **d’Elisabeth Le Prettre**, enseignante.
-
-Ce portail regroupe l’ensemble des cours et supports utilisés dans les enseignements
-du secondaire et du supérieur.
 
 ---
 
 ## 📘 Enseignements au lycée
 
-### Numérique et Sciences Informatiques (NSI)
+<table>
+<tr>
+<td width="50%" align="center">
 
-- 🔹 **NSI – Première**  
-  👉 https://eleprettre.forge.apps.education.fr/nsi-lere/
+### 💻 NSI – Première
 
-- 🔹 **NSI – Terminale**  
-  👉 https://eleprettre.forge.apps.education.fr/nsi-tle/
+<a href="https://eleprettre.forge.apps.education.fr/nsi-1ere/" target="_blank">
+🧠📘  
+<br><strong>Accéder au cours</strong>
+</a>
+
+</td>
+<td width="50%" align="center">
+
+### 💻 NSI – Terminale
+
+<a href="https://eleprettre.forge.apps.education.fr/nsi-tle/" target="_blank">
+🧠🎓  
+<br><strong>Accéder au cours</strong>
+</a>
+
+</td>
+</tr>
+</table>
 
 ---
 
 ## 🧪 Enseignement supérieur
 
-### BTS Métiers de l’Esthétique, de la Cosmétique et de la Parfumerie (MECP)
+<table>
+<tr>
+<td width="100%" align="center">
 
-- 🔹 **Physique-Chimie appliquée en BTS MECP**  
-  👉 https://bts-mecp-physique-chimie-688080.forge.apps.education.fr/
+### 💄 BTS MECP – Physique-Chimie
+
+<a href="https://bts-mecp-physique-chimie-688080.forge.apps.education.fr/" target="_blank">
+⚗️🔬  
+<br><strong>Accéder au cours</strong>
+</a>
+
+</td>
+</tr>
+</table>
 
 ---
 
-> Les supports sont accessibles librement et mis à jour régulièrement.
+> 📌 *Ressources en accès libre — mises à jour régulières*
+
+---
+
+
