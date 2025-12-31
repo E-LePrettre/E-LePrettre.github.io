@@ -159,7 +159,7 @@
 <a class="card bts" href="https://bts-mecp-cosmetologie-f42365.forge.apps.education.fr">
   <span class="tag">BTS</span>
   <div class="card-head">
-    <div class="card-icon">⚛️</div>
+    <div class="card-icon">💄</div>
     <p class="card-title">BTS MECP — Cosmétologie</p>
   </div>
   <span class="card-cta">👉 Accéder au cours</span>
