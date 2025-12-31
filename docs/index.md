@@ -152,9 +152,7 @@
   <span class="card-cta">👉 Accéder au cours</span>
 </a>
 
-</div>
 
-<div class="cards-grid">
 
 <a class="card bts" href="https://bts-mecp-cosmetologie-f42365.forge.apps.education.fr">
   <span class="tag">BTS</span>
