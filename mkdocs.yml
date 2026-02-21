@@ -1,5 +1,5 @@
 site_name: Ressources pédagogiques – E. Le Prettre
-site_url: !ENV [CI_PAGES_URL, "http://127.0.0.1:8000/"]
+site_url: https://e-leprettre.github.io/
 
 theme:
   name: material
@@ -11,3 +11,4 @@ theme:
 
 nav:
   - Accueil: index.md
+
