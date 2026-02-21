@@ -117,7 +117,7 @@
 
 <div class="cards-grid">
 
-<a class="card nsi" href="https://eleprettre.forge.apps.education.fr/nsi-1ere/">
+<a class="card nsi" href="https://e-leprettre.github.io/nsi-1ere/">
   <span class="tag">NSI</span>
   <div class="card-head">
     <div class="card-icon">💻</div>
@@ -126,7 +126,7 @@
   <span class="card-cta">👉 Accéder au cours</span>
 </a>
 
-<a class="card nsi" href="https://eleprettre.forge.apps.education.fr/nsi-tle/">
+<a class="card nsi" href="https://e-leprettre.github.io/nsi-tle/">
   <span class="tag">NSI</span>
   <div class="card-head">
     <div class="card-icon">🌐</div>
@@ -143,7 +143,7 @@
 
 <div class="cards-grid">
 
-<a class="card bts" href="https://bts-mecp-physique-chimie-688080.forge.apps.education.fr/">
+<a class="card bts" href="https://e-leprettre.github.io/bts-mecp-physique-chimie/">
   <span class="tag">BTS</span>
   <div class="card-head">
     <div class="card-icon">⚛️</div>
@@ -154,7 +154,7 @@
 
 
 
-<a class="card bts" href="https://bts-mecp-cosmetologie-f42365.forge.apps.education.fr">
+<a class="card bts" href="https://e-leprettre.github.io/bts-mecp-cosmetologie/">
   <span class="tag">BTS</span>
   <div class="card-head">
     <div class="card-icon">💄</div>
@@ -164,3 +164,4 @@
 </a>
 
 </div>
+
