@@ -1,1 +1,1 @@
-Ressources : https://eleprettre-118562.forge.apps.education.fr/
+Ressources : https://e-leprettre.github.io/
