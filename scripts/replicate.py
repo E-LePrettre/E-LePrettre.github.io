@@ -66,6 +66,10 @@ for page in OUTPUT.rglob('*.html'):
         if url.netloc != 'e-leprettre.github.io':
             return match.group(0)
         target = OUTPUT / unquote(url.path.lstrip('/'))
+        if not target.is_file() and not urlsplit(src).scheme:
+            course_target = course / unquote(urlsplit(src).path.lstrip('/'))
+            if course_target.is_file():
+                target = course_target
         if not target.is_file() and not urlsplit(src).scheme and not src.startswith('/'):
             for parent in [page.parent, *page.parent.parents]:
                 if not parent.is_relative_to(course):
