@@ -2,15 +2,21 @@
 /* ===== Grille responsive ===== */
 .cards-grid{
   display:grid;
-  grid-template-columns: 1fr;
+  grid-template-columns:1fr;
   gap:22px;
-  margin: 24px 0;
+  margin:24px 0;
 }
-@media (min-width: 720px){
-  .cards-grid{ grid-template-columns: repeat(2, 1fr); }
+
+@media (min-width:720px){
+  .cards-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
 }
-@media (min-width: 1100px){
-  .cards-grid{ grid-template-columns: repeat(3, 1fr); }
+
+@media (min-width:1100px){
+  .cards-grid{
+    grid-template-columns:repeat(3, 1fr);
+  }
 }
 
 /* ===== Carte ===== */
@@ -22,25 +28,33 @@
   background:#fff;
   border:1px solid rgba(0,0,0,.08);
   text-decoration:none !important;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
   cursor:pointer;
 }
 
 /* Hover */
 .card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(15,23,42,.12);
+  transform:translateY(-3px);
+  box-shadow:0 20px 40px rgba(15,23,42,.12);
 }
 
 /* ===== Thèmes ===== */
+.card.snt{
+  border-left:6px solid #0891b2;
+}
+
 .card.nsi{
   border-left:6px solid #2563eb;
 }
+
 .card.bts{
   border-left:6px solid #6d28d9;
 }
 
-/* ===== Tag NSI / BTS ===== */
+/* ===== Tag SNT / NSI / BTS ===== */
 .tag{
   position:absolute;
   top:14px;
@@ -51,9 +65,15 @@
   border-radius:999px;
   color:#fff;
 }
+
+.card.snt .tag{
+  background:#0891b2;
+}
+
 .card.nsi .tag{
   background:#2563eb;
 }
+
 .card.bts .tag{
   background:#6d28d9;
 }
@@ -66,7 +86,7 @@
   margin-bottom:18px;
 }
 
-/* Icône scientifique */
+/* Icône */
 .card-icon{
   width:52px;
   height:52px;
@@ -77,16 +97,23 @@
   font-size:24px;
   color:#fff;
 }
+
+.card.snt .card-icon{
+  background:linear-gradient(135deg,#0891b2,#22d3ee);
+}
+
 .card.nsi .card-icon{
   background:linear-gradient(135deg,#2563eb,#0ea5e9);
 }
+
 .card.bts .card-icon{
   background:linear-gradient(135deg,#6d28d9,#a855f7);
 }
 
-/* Titre */
+/* ===== Titre ===== */
 .card-title{
   margin:0;
+  padding-right:38px;
   font-size:17px;
   font-weight:800;
   color:#0f172a;
@@ -103,9 +130,15 @@
   font-size:13px;
   background:rgba(0,0,0,.05);
 }
+
+.card.snt .card-cta{
+  color:#0e7490;
+}
+
 .card.nsi .card-cta{
   color:#1d4ed8;
 }
+
 .card.bts .card-cta{
   color:#6d28d9;
 }
@@ -113,11 +146,20 @@
 
 ---
 
-## 📘 Enseignements au lycée
+## 🐍 Enseignements au lycée
 
 <div class="cards-grid">
 
-<a class="card nsi" href="https://e-leprettre.github.io/nsi-1ere/">
+<a class="card snt" href="https://eleprettre.forge.apps.education.fr/snt/">
+  <span class="tag">SNT</span>
+  <div class="card-head">
+    <div class="card-icon">🌐</div>
+    <p class="card-title">SNT — Seconde</p>
+  </div>
+  <span class="card-cta">👉 Accéder au cours</span>
+</a>
+
+<a class="card nsi" href="https://eleprettre.forge.apps.education.fr/nsi-1ere/">
   <span class="tag">NSI</span>
   <div class="card-head">
     <div class="card-icon">💻</div>
@@ -126,10 +168,10 @@
   <span class="card-cta">👉 Accéder au cours</span>
 </a>
 
-<a class="card nsi" href="https://e-leprettre.github.io/nsi-tle/">
+<a class="card nsi" href="https://eleprettre.forge.apps.education.fr/nsi-tle/">
   <span class="tag">NSI</span>
   <div class="card-head">
-    <div class="card-icon">🌐</div>
+    <div class="card-icon">👩‍💻</div>
     <p class="card-title">NSI — Terminale</p>
   </div>
   <span class="card-cta">👉 Accéder au cours</span>
@@ -139,22 +181,20 @@
 
 ---
 
-## 🧪 Enseignement supérieur
+## 🎓 Enseignement supérieur
 
 <div class="cards-grid">
 
-<a class="card bts" href="https://e-leprettre.github.io/bts-mecp-physique-chimie/">
+<a class="card bts" href="https://bts-mecp-physique-chimie-688080.forge.apps.education.fr/">
   <span class="tag">BTS</span>
   <div class="card-head">
-    <div class="card-icon">⚛️</div>
+    <div class="card-icon">🧪</div>
     <p class="card-title">BTS MECP — Physique-Chimie</p>
   </div>
   <span class="card-cta">👉 Accéder au cours</span>
 </a>
 
-
-
-<a class="card bts" href="https://e-leprettre.github.io/bts-mecp-cosmetologie/">
+<a class="card bts" href="https://bts-mecp-cosmetologie-f42365.forge.apps.education.fr/">
   <span class="tag">BTS</span>
   <div class="card-head">
     <div class="card-icon">💄</div>
@@ -163,5 +203,13 @@
   <span class="card-cta">👉 Accéder au cours</span>
 </a>
 
-</div>
+<a class="card bts" href="https://eleprettre.forge.apps.education.fr/bts-mecp-option-marque-dev-pro/">
+  <span class="tag">BTS</span>
+  <div class="card-head">
+    <div class="card-icon">🧴</div>
+    <p class="card-title">BTS MECP — Option Marque – Développement professionnel</p>
+  </div>
+  <span class="card-cta">👉 Accéder au cours</span>
+</a>
 
+</div>
