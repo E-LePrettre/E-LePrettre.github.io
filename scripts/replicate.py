@@ -104,3 +104,9 @@ for project in PROJECTS:
 (OUTPUT / '.nojekyll').touch()
 (OUTPUT / 'replication.json').write_text(json.dumps(versions, indent=2) + '\n')
 print('Verified all seven homepages. Source revisions:', versions)
+
+# Personal PWA: kept under scripts/ so Forge synchronization preserves its source.
+charge_source = Path(__file__).resolve().parent / 'tesla-charge'
+if charge_source.is_dir():
+    shutil.copytree(charge_source, OUTPUT / 'tesla-charge', dirs_exist_ok=True)
+    print('Published Tesla Charge PWA at /tesla-charge/')
