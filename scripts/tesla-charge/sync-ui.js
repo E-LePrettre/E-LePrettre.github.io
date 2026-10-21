@@ -54,12 +54,21 @@ $('#sync-connect').onclick=async()=>{try{await session.connect();problem='';awai
 $('#sync-pick').onclick=async()=>{try{await session.pick();problem='';await synchronize();}catch(e){problem=e.message;}text();};
 $('#sync-now').onclick=synchronize;
 $('#sync-disconnect').onclick=()=>{session.disconnect();problem='Connexion Google fermée. Le cache et les données en attente sont conservés.';text();};
-$('#sync-adopt').onclick=async()=>{
+$('#sync-adopt').onclick=()=>{
  if(busy)return;
- if(!confirm('Afficher le carnet central ? Le carnet actuel sera conservé intégralement dans une archive locale exportable. Aucune donnée centrale ne sera remplacée.'))return;
+ const area=$('#sync-conflicts'),panel=document.createElement('div'),notice=document.createElement('p'),approve=document.createElement('button'),cancel=document.createElement('button');
+ panel.className='sync-version';panel.setAttribute('role','alert');
+ notice.textContent='Afficher le carnet central ? Le carnet actuel sera conservé intégralement dans une archive locale exportable. Aucune donnée centrale ne sera remplacée.';
+ approve.textContent='Confirmer : archiver le carnet local et afficher le carnet central';cancel.textContent='Annuler';
+ cancel.onclick=()=>{panel.remove();$('#sync-adopt').hidden=false;};
+ approve.onclick=async()=>{
+ if(busy)return;
+ approve.disabled=true;cancel.disabled=true;
  busy=true;problem='';text();
  try{const result=await lock(async()=>store.adoptCentral(await transport.read()));replaceSyncedState(result.local);$('#sync-conflicts').replaceChildren();$('#sync-adopt').hidden=true;message('Carnet central affiché. Votre ancienne version reste disponible via « Exporter les archives locales ».');}
- catch(e){problem=e.message;}finally{busy=false;text();}
+ catch(e){problem=e.message;approve.disabled=false;cancel.disabled=false;}finally{busy=false;text();}
+ };
+ panel.append(notice,approve,cancel);area.replaceChildren(panel);$('#sync-adopt').hidden=true;approve.focus();
 };
 $('#sync-archives').onclick=()=>{
  const records={};for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(/^tesla-charge-(archive-|before-|ancien-onglet-)/.test(key))records[key]=localStorage.getItem(key);}
@@ -71,3 +80,4 @@ window.addEventListener('online',()=>{problem='';synchronize();});window.addEven
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&session.accessToken())synchronize();});
 setInterval(()=>{if(!document.hidden&&session.accessToken())synchronize();else text();},60000);
 text();session.prepare().then(()=>{ready=true;problem='';text();}).catch(e=>{problem=e.message;text();});
+
