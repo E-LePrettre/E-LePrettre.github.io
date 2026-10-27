@@ -33,7 +33,7 @@ for project in PROJECTS:
         interpreter = str(home_env / 'bin/python')
         if not Path(interpreter).exists():
             subprocess.run([sys.executable, '-m', 'venv', str(home_env)], check=True)
-            subprocess.run([interpreter, '-m', 'pip', 'install', 'mkdocs-material'], check=True)
+            subprocess.run([interpreter, '-m', 'pip', 'install', 'mkdocs-material>=9.7.7,<10'], check=True)
     subprocess.run([interpreter, '-m', 'mkdocs', 'build', '--site-dir', str(destination)],
                    cwd=source, env=environment, check=True)
 
