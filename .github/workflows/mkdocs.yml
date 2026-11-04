@@ -17,6 +17,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Check out GitHub mirror snt
+        uses: actions/checkout@v4
+        with:
+          repository: E-LePrettre/snt
+          ref: main
+          path: forge-snt
+      - name: Check out GitHub mirror nsi-1ere
+        uses: actions/checkout@v4
+        with:
+          repository: E-LePrettre/nsi-1ere
+          ref: main
+          path: forge-nsi-1ere
+      - name: Check out GitHub mirror nsi-tle
+        uses: actions/checkout@v4
+        with:
+          repository: E-LePrettre/nsi-tle
+          ref: main
+          path: forge-nsi-tle
+      - name: Check out GitHub mirror bts-mecp-physique-chimie
+        uses: actions/checkout@v4
+        with:
+          repository: E-LePrettre/bts-mecp-physique-chimie
+          ref: main
+          path: forge-bts-mecp-physique-chimie
+      - name: Check out GitHub mirror bts-mecp-cosmetologie
+        uses: actions/checkout@v4
+        with:
+          repository: E-LePrettre/bts-mecp-cosmetologie
+          ref: main
+          path: forge-bts-mecp-cosmetologie
+      - name: Check out GitHub mirror bts-mecp-option-marque-dev-pro
+        uses: actions/checkout@v4
+        with:
+          repository: E-LePrettre/bts-mecp-option-marque-dev-pro
+          ref: main
+          path: forge-bts-mecp-option-marque-dev-pro
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
