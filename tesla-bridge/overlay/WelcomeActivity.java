@@ -37,6 +37,7 @@ public final class WelcomeActivity extends Activity {
         button("Ouvrir le moteur de projection", v -> {
             Intent i = new Intent();
             i.setClassName(this, "com.shilapi.xcertplay.DiPlayActivity");
+            i.putExtra("page", "source-android-auto");
             startActivity(i);
         });
         text("4 · Vérifier Waze et Deezer", 22);

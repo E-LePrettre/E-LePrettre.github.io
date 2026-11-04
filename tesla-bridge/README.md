@@ -10,7 +10,7 @@ Cible d'essai communiquée : Samsung S24 Ultra, Android 17 / One UI 9.0 ; Model 
 
 ## Télécharger
 
-Ouvrir Actions → « Passerelle Tesla APK » → dernière exécution réussie de la branche tesla-bridge-prototype → artifact passerelle-tesla-prototype. Extraire le ZIP puis installer Passerelle-Tesla-0.1-debug.apk sur le Samsung. GitHub peut demander une connexion. C'est une version de développement, sans distribution Play Store.
+Le workflow publie aussi une préversion dans [Releases](https://github.com/E-LePrettre/E-LePrettre.github.io/releases) avec APK et sources téléchargeables directement. Sinon, ouvrir Actions → « Passerelle Tesla APK » → dernière exécution réussie de la branche tesla-bridge-prototype → artifact passerelle-tesla-prototype. Extraire le ZIP puis installer Passerelle-Tesla-0.1-debug.apk sur le Samsung. GitHub peut demander une connexion. C'est une version de développement, sans distribution Play Store.
 
 ## Premier essai, voiture stationnée
 
