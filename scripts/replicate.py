@@ -22,6 +22,8 @@ for project in PROJECTS:
     source = Path('forge-home' if project == 'eleprettre' else 'forge-' + project)
     repository = f'https://forge.apps.education.fr/eleprettre/{project}'
     if not source.exists():
+        if os.environ.get('GITHUB_ACTIONS') == 'true':
+            raise RuntimeError(f'Missing GitHub mirror checkout: {source}. Refusing to clone Forge during Pages build.')
         subprocess.run(['git', 'clone', '--depth', '1', repository + '.git', str(source)], check=True)
     versions[project] = subprocess.check_output(['git', '-C', str(source), 'rev-parse', 'HEAD'], text=True).strip()
     destination = OUTPUT if project == 'eleprettre' else OUTPUT / project
