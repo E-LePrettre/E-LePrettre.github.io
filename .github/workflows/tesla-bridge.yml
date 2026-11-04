@@ -1,0 +1,74 @@
+name: Passerelle Tesla APK
+on:
+  push:
+    branches: [tesla-bridge-prototype]
+    paths: ['tesla-bridge/**', '.github/workflows/tesla-bridge.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tesla-bridge-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  apk:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: recipe
+      - uses: actions/checkout@v4
+        with:
+          repository: fython/wheelplay
+          ref: 7a82bcb15651c29af755cdab949822aa75956f3f
+          path: engine
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: gradle/actions/setup-gradle@v5
+      - name: Apply French prototype
+        run: python3 recipe/tesla-bridge/scripts/prepare.py engine
+      - name: Install Android build tools
+        working-directory: engine
+        run: |
+          export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+          bash .github/scripts/install-android-packages.sh "platforms;android-36" "build-tools;36.0.0" "ndk;28.2.13676358" "cmake;3.22.1"
+      - name: Verify browser and protocol tests
+        working-directory: engine
+        run: |
+          npm ci
+          npm test
+          npm run check
+      - name: Verify and compile APK
+        working-directory: engine
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon :shared:testDebugUnitTest :common:testDebugUnitTest :mobile:lintDebug :mobile:assembleDebug
+      - name: Package APK and corresponding sources
+        run: |
+          mkdir -p delivery
+          cp engine/mobile/build/outputs/apk/debug/mobile-debug.apk delivery/Passerelle-Tesla-0.1-debug.apk
+          cp recipe/tesla-bridge/README.md delivery/INSTALLATION.md
+          cp recipe/tesla-bridge/upstream.json delivery/
+          cp engine/LICENSE delivery/LICENSE-engine
+          tar --exclude=.git --exclude=.gradle --exclude=build --exclude=node_modules -czf delivery/Passerelle-Tesla-0.1-sources.tar.gz -C engine .
+          (cd delivery && sha256sum *.apk *.tar.gz > SHA256SUMS.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: passerelle-tesla-prototype
+          path: delivery/
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: passerelle-tesla-diagnostics
+          path: |
+            engine/**/build/reports/
+            engine/**/build/test-results/
+          if-no-files-found: ignore
