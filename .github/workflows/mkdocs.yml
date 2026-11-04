@@ -17,6 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Check out GitHub mirror home
+        uses: actions/checkout@v4
+        with:
+          repository: E-LePrettre/E-LePrettre.github.io
+          ref: main
+          path: forge-home
       - name: Check out GitHub mirror snt
         uses: actions/checkout@v4
         with:
