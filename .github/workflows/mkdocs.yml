@@ -2,9 +2,12 @@ name: Replicate Forge to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows: ['Synchronize source from Forge']
+    types: [completed]
   workflow_dispatch:
   schedule:
-    - cron: '23 3 * * *'
+    - cron: '43 4,16 * * *'
 permissions:
   contents: read
   pages: write
@@ -14,6 +17,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
